@@ -16,6 +16,17 @@ public void displaystudents() {
  		
  		System.out.println(st);
  	}
+}
+public boolean studentExists(int studentId) {
+	for(Student student :students) {
+if(students.getstudentId()==studentId) {
+	return true;
+}
+		
+	}
+	
+
 	
 }
+
 }
