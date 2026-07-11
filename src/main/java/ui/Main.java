@@ -22,7 +22,9 @@ public class Main {
             System.out.println("2. Display Students");
             System.out.println("3. Search Student");
             System.out.println("4. Update Student");
-            System.out.println("5. Exit");
+            System.out.println("5. delete Student");
+
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
 
             int choice = sc.nextInt();
@@ -166,8 +168,27 @@ public class Main {
                 System.out.println("Student updated successfully!");
 
                 break;
-
             case 5:
+
+                System.out.print("Enter Student ID to delete: ");
+
+                int deleteId = sc.nextInt();
+                sc.nextLine();
+
+                boolean deleted = service.deleteStudent(deleteId);
+
+                if (deleted) {
+
+                    System.out.println("Student deleted successfully.");
+
+                } else {
+
+                    System.out.println("Student not found.");
+
+                }
+
+                break;
+            case 6:
 
                 running = false;
 
