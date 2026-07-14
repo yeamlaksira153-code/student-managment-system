@@ -41,4 +41,19 @@ public class StudentService {
 	   
    }return null;
     }
+    
+    public boolean deleteStudent(int studentId) {
+
+        Student student = findStudentById(studentId);
+
+        if (student != null) {
+
+            students.remove(student);
+
+            return true;
+        }
+
+        return false;
+    }
 }
+
