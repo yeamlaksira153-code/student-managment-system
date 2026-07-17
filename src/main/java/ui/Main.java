@@ -3,7 +3,7 @@ package ui;
 import java.util.Scanner;
 import model.Student;
 import service.StudentService;
-
+import java.util.InputMismatchException;
 public class Main {
 
     public static void main(String[] args) {
@@ -27,9 +27,15 @@ public class Main {
             System.out.println("6. Exit");
             System.out.print("Choose an option: ");
 
-            int choice = sc.nextInt();
-            sc.nextLine();
-
+            int choice;
+            try {
+            	choice=sc.nextInt();
+     
+            }catch(InputMismatchException e) {
+            	System.out.println("please enter a number");
+            	sc.nextLine();
+            	continue;
+            }
             switch (choice) {
 
             case 1:
@@ -129,23 +135,20 @@ public class Main {
 
                 break;
 
+                
             case 4:
 
                 System.out.print("Enter Student ID to update: ");
 
                 int updateId = sc.nextInt();
                 sc.nextLine();
-
                 Student studentToUpdate = service.findStudentById(updateId);
-
                 if (studentToUpdate == null) {
-
                     System.out.println("Student not found.");
-
-                    break;
-
+                    break; 
+                    
                 }
-
+                
                 System.out.print("Enter New Name: ");
                 String newName = sc.nextLine();
 

@@ -2,7 +2,8 @@ package service;
 
 import java.util.ArrayList;
 import model.Student;
-
+import java.io.FileWriter;
+import java.io.IOException;
 public class StudentService {
 
     private ArrayList<Student> students;
@@ -39,7 +40,9 @@ public class StudentService {
 		   return student;
 	   }
 	   
-   }return null;
+   }
+   
+   return null;
     }
     
     public boolean deleteStudent(int studentId) {
@@ -55,5 +58,20 @@ public class StudentService {
 
         return false;
     }
+    
+    public void saveStudent() {
+    	
+    	try {
+    		FileWriter writer = new FileWriter("student.txt");
+    		for(Student student:students) {
+    			
+    writer.write(student.toString());
+    		}writer.close();
+    		
+    	}catch(IOException e) {
+    		System.out.println("error saving student");
+    	}
+    }    		
+
 }
 
